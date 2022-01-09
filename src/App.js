@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-var stateList = {
+const stateList = {
   Rajsthan: [
     {
       name: "Dal Bati Churma",
@@ -73,15 +73,16 @@ var stateList = {
     }
   ]
 };
-var stateToSee = Object.keys(stateList);
+
+const stateToSee = Object.keys(stateList);
 export default function App() {
-  var [selectedState, setState] = useState("Rajsthan");
+  const [selectedState, setState] = useState("Rajsthan");
 
   const stateClickHandeler = (state) => setState(state);
 
   return (
     <div className="App">
-      <div>
+      <div className="headerclass">
         <header>Indian Food cuisine</header>
       </div>
       <div style={{ margin: "1rem", color: "#ec524b", fontSize: "20px" }}>
@@ -109,7 +110,7 @@ export default function App() {
       <div>
         <ul>
           {stateList[selectedState].map(({ name, image }) => (
-            <li style={{ display: "inline" }} key={name}>
+            <li style={{ display: "inline", listStyle: "none" }} key={name}>
               {" "}
               <div className="food-data">
                 <div className="food-name" style={{ fontSize: "larger" }}>
