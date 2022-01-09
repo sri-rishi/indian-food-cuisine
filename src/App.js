@@ -77,12 +77,11 @@ var stateToSee = Object.keys(stateList);
 export default function App() {
   var [selectedState, setState] = useState("Rajsthan");
 
-  function stateClickHandeler(state) {
-    setState(state);
-  }
+  const stateClickHandeler = (state) => setState(state);
+
   return (
     <div className="App">
-      <div className="headerclass">
+      <div>
         <header>Indian Food cuisine</header>
       </div>
       <div style={{ margin: "1rem", color: "#ec524b", fontSize: "20px" }}>
@@ -109,18 +108,15 @@ export default function App() {
       </div>
       <div>
         <ul>
-          {stateList[selectedState].map((food) => (
-            <li
-              style={{ display: "inline", listStyle: "none" }}
-              key={food.name}
-            >
+          {stateList[selectedState].map(({ name, image }) => (
+            <li style={{ display: "inline" }} key={name}>
               {" "}
               <div className="food-data">
                 <div className="food-name" style={{ fontSize: "larger" }}>
                   {" "}
-                  {food.name}{" "}
+                  {name}{" "}
                 </div>
-                <img key={food.image} src={food.image} alt="food" />
+                <img key={image} src={image} alt="food" />
               </div>
             </li>
           ))}
